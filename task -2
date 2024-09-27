@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+
+.container {
+  position: relative;
+}
+
+
+.mySlides {
+  display: none;
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+</style>
+<body style="background-color: #d8e8d8;">
+   <div class="dropdown" style="margin-top: 100px;">
+  <button class="dropbtn" style="background-color: #1823b6; color: #000; font-weight: bolder;padding: 15px;">Dropdown</button>
+  <div class="dropdown-content">
+  <a href="photos.html">  PHOTOS</a>
+  <a href="videos.html">VIDEOS</a>
+  <a href="screen.html">SCREENSHOT</a>
+  <a href="screenre/.html">SCREEN-RECODER</a>
+  <a href="#">WEBSITES</a>
+  <a href="#">FORUMS</a>
+  <a href="#">COMMUNITY</a>
+  </div>
+</div>
+
+<h1 style="text-align: center;  font-weight: bolder; font-family: 'Times New Roman', Times, serif; font-size: x-large; font-style: normal; margin-top: 300px;">Image-Gallery</h1>
+<Marquee style="background-color: blue;">
+<h2 style="font-weight: bolder; font-family: 'Times New Roman', Times, serif; font-size: x-large; font-style: normal;">Slideshow Gallery
+</Marquee>
+</h2>
+
+<div class="container">
+<div class="mySlides">
+    <div class="numbertext">1 / 26</div>
+    <img src="C:\Users\adity\Downloads\TAJ-MAHAL-PD-BLOG.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">2/ 26</div>
+  <img src="C:\Users\adity\Downloads\Golden-Temple-PD-BLOG.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">3 / 26</div>
+    <img src="C:\Users\adity\Downloads\meenakshi-temple-PD-BLOG (1).jpg" style="width:100%">
+  </div>
+ <div class="mySlides">
+  <div class="numbertext">4/ 26</div>
+  <img src="C:\Users\adity\Downloads\Mysore-palace-PD-BLOG.jpg" style="width:100%">
+</diV>
+<div class="mySlides">
+    <div class="numbertext">5 / 26</div>
+    <img src="C:\Users\adity\Downloads\gateway-to-india-PD-BLOG.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">6/ 26</div>
+  <img src="C:\Users\adity\Downloads\red-fort-PD-BLOG.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">7 / 26</div>
+    <img src="C:\Users\adity\Downloads\HAWA-MAHAL-PD-BLOG.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">8 / 26</div>
+  <img src="C:\Users\adity\Downloads\qutub-minar-PD-BLOG.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">9 / 26</div>
+    <img src="C:\Users\adity\Downloads\Sanchi-Stupi-PD-BLOG.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">10 / 26</div>
+  <img src="C:\Users\adity\Downloads\Charminar-PD-BLOG-1.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">11 / 26</div>
+    <img src="C:\Users\adity\Downloads\download (14).jpeg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">12 / 26</div>
+  <img src="C:\Users\adity\Downloads\istockphoto-942152278-612x612.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">13 / 26</div>
+    <img src="C:\Users\adity\Downloads\istockphoto-163851503-612x612.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">14 / 26</div>
+  <img src="C:\Users\adity\Downloads\istockphoto-466240080-612x612.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">15 / 26</div>
+    <img src="C:\Users\adity\Downloads\istockphoto-489343716-612x612.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">16 / 26</div>
+  <img src="C:\Users\adity\Downloads\istockphoto-614963888-612x612.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">17 / 26</div>
+    <img src="C:\Users\adity\Downloads\istockphoto-154894958-612x612.jpg" style="width:100%">
+  </div>
+ <div class="mySlides">
+  <div class="numbertext">18 / 26</div>
+  <img src="C:\Users\adity\Downloads\istockphoto-508628776-612x612.jpg" style="width:100%">
+</div>
+<div class="mySlides">
+    <div class="numbertext">19 / 26</div>
+    <img src="C:\Users\adity\Downloads\istockphoto-698900018-612x612.jpg" style="width:100%">
+  </div>
+  <div class="mySlides">
+  <div class="numbertext">20 / 26</div>
+  <img src="C:\Users\adity\Downloads\istockphoto-911256172-612x612.jpg" style="width:100%">
+</div>
+
+  <div class="mySlides">
+    <div class="numbertext">21 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.52_9795593e.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">22 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.52_f4827f35.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">23 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_c2188bd2.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">24 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_c5355aa0.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">25 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_1bc10b7f.jpg" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">26 / 26</div>
+    <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.51_185d0b57.jpg" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\TAJ-MAHAL-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(1)" alt="TAJ-MAHAL.Agra">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\Golden-Temple-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(2)" alt="Golden Temple (Harmandir Sahib), Amritsar">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\meenakshi-temple-PD-BLOG (1).jpg" style="width:100%" onclick="currentSlide(3)" alt="Meenakshi-Temple">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\Mysore-palace-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(4)" alt="Mysore-palace">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\gateway-to-india-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(5)" alt="Gateway-to-India">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\red-fort-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(6)" alt="Red-Fort">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\HAWA-MAHAL-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(7)" alt="HAWA-MAHAL">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\qutub-minar-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(8)" alt="Qutub-Minar">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\Sanchi-Stupi-PD-BLOG.jpg" style="width:100%" onclick="currentSlide(9)" alt="Sanchi-Stupi">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\Charminar-PD-BLOG-1.jpg" style="width:100%" onclick="currentSlide(10)" alt="Charminar">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\download (14).jpeg" style="width:100%" onclick="currentSlide(11)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-942152278-612x612.jpg" style="width:100%" onclick="currentSlide(12)" alt="istockphoto">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-163851503-612x612.jpg" style="width:100%" onclick="currentSlide(13)" alt="The INDIA PALACE">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-466240080-612x612.jpg" style="width:100%" onclick="currentSlide(14)" alt="The VICTORIA MEMORIAL LANDMARK">
+    </div>
+      <div class="column">
+        <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-489343716-612x612.jpg" style="width:100%" onclick="currentSlide(15)" alt="HUMAYUN TOMB">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-614963888-612x612.jpg" style="width:100%" onclick="currentSlide(16)" alt="MADURAI TEMPLE">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-154894958-612x612.jpg" style="width:100%" onclick="currentSlide(17)" alt="AMBER-FORT">
+      </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-508628776-612x612.jpg" style="width:100%" onclick="currentSlide(18)" alt="The MAHADEV TEMPLE">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-698900018-612x612.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(19)" alt="The WORLDS LANDMARK">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\Downloads\istockphoto-911256172-612x612.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(20)" alt="The SHORE TEMPLE">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.52_9795593e.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(21)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.52_f4827f35.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(22)" alt="Cinque Terre">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_c2188bd2.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(23)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_c5355aa0.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(24)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.53_1bc10b7f.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(25)" alt="Nature and sunrise">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-26 at 12.32.51_185d0b57.jpg" style="width:250PX;height: 200PX;" onclick="currentSlide(26)" alt="Snowy Mountains">
+    </div>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+    
+</body>
+</html>
+--------------------------------------------------------------
+                           <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width="device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Marquee style="background-color: blue; padding: 17PX;">
+        <h1>Screen-Recorder
+    </Marquee>
+</h1>
+<h1>4 july 2024</h1>
+<video src="C:\Users\adity\OneDrive\Documents\Pictures\Screenshots\VideoCompressorResizeCompressVideo2024_07_22_11_09_32.mp4" controls loop width="470px" height="500px"></video>
+<video src="C:\Users\adity\OneDrive\Documents\Desktop\New folder\VID_20240924_103747.mp4" controls loop width="470px" height="500px"></video>
+
+<video src="C:\Users\adity\OneDrive\Documents\Desktop\New folder\VID_20240924_103705.mp4" controls  loop width="470px" height="540px"></video> 
+<video src="C:\Users\adity\Videos\Captures\ConsoleApplication4 - Microsoft Visual Studio - Experimental Instance 2024-09-23 21-25-33.mp4" controls loop width="470px" height="500px"></video>
+<video src="C:\Users\adity\Videos\Captures\C__Users_adity_AppData_Local_Programs_Python_Python312_python.exe 2024-09-24 11-21-24.mp4" controls loop width="470px" height="500px"></video>
+<video src="C:\Users\adity\Videos\Captures\C__Users_adity_AppData_Local_Programs_Python_Python312_python.exe 2024-09-24 10-24-21.mp4" controls loop width="470px" height="500px"></video>
+<video src="C:\Users\adity\Videos\Captures\PythonApplication5 - Microsoft Visual Studio - Experimental Instance 2024-09-24 10-23-40.mp4" controls loop width="470px" height="500px"></video>
+
+
+</body>
+</html>
+------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<Marquee style="background-color: blue; padding: 16PX;">
+    <h1> SCREEN-SHOT     
+     </Marquee>
+ </h1> 
+</main>
+     <h1>25 september 2024</h1>
+
+<img   style=" width: 700px; height:500px ;"   src="C:\Users\adity\Downloads\38884720834_52aa6e9aab_z.jpg">
+<img   style=" width: 750px; height:500px ;"   src="C:\Users\adity\Downloads\24725537227_cbd67cc6c1_z.jpg">
+<img   style=" width: 700px; height:500px ;"   src="C:\Users\adity\Downloads\24725536887_6f3e22953b_c.jpg">
+<img   style=" width: 750px; height:500px ;"   src="C:\Users\adity\Downloads\24725537157_c7ef0bda88_z.jpg">
+<img   style=" width: 700px; height:500px ;" src=" C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-15 at 10.33.33_44f1f832.jpg">
+<img  style=" width: 750px; height:500px ;" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-15 at 10.37.51_64632d52.jpg">
+<img style=" width: 700px; height:500px ;"  src="C:\Users\adity\Downloads\Babu-Banarasi-Das-Dental-College-Lucknow.webp">
+<H1>23 AUGUST 2024</H1>
+<img  style=" width: 750px; height:500px ;"  src="C:\Users\adity\Downloads\babu-banarasi-das-university-lucknow-205197.jpg">
+<img style=" width: 700px; height:500px ;"   src="C:\Users\adity\Downloads\1624508145phpWE83AY_1280x960.jpg">
+<img   style=" width: 750px; height:500px ;" src="C:\Users\adity\Downloads\310964617_410686334576320_2798293453700921339_n.jpg">
+<img   style=" width: 700px; height:500px ;"   src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.24_55255cdb.jpg">
+<img   style=" width: 750px; height:500px ;"   src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.24_ef71c0ad.jpg">
+<img   style=" width: 700px; height:500px ;"   src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.24_4999624b.jpg">
+<H1>12 JULY 2024</H1>
+<img   style=" width: 750px; height:500px ;"   src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.23_8ba08e2f.jpg">
+<img   style=" width: 700px; height:500px ;" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.23_bcc3f519.jpg ">
+<img  style=" width: 750px; height:500px ;" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.19_97c28171.jpg">
+<img style=" width: 700px; height:500px ;"  src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.19_ba4b1ce7.jpg">
+<img  style=" width: 750px; height:500px ;"  src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.15_2fc4465e.jpg">
+<H1>18 JUNE 2024</H1>
+<img style=" width: 700px; height:500px ;"   src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.15_7a286bfa.jpg">
+<img   style=" width: 750px; height:500px ;" src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-27 at 09.56.18_81f9aed6.jpg">
+
+</main>   
+</body>
+</html>
+---------------------------------------------------------
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main style="background-color: rgb(102, 237, 61); display: inline-flex; margin-left:0px;" >
+
+        <section style="background-color: rgb(121, 223, 186);margin-left:0px;">
+            <Marquee style="background-color: blue; padding: 16PX;">
+           <h1> VIDEOS     
+            </Marquee>
+        </h1> 
+            <h1>22 september 2024</h1>
+
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Camera Roll\VideoCompressorResizeCompressVideo2024_07_24_10_53_01.mp4" controls loop width="470px" height="500px"></video>
+        <video src="C:\Users\adity\Downloads\Untitled video - Made with Clipchamp (4).mp4" controls loop width="470px" height="500px"></video>
+    
+        <video src="C:\Users\adity\Downloads\Untitled video - Made with Clipchamp (5).mp4" controls  loop width="470px" height="540px"></video> 
+<h1>23 august 2024</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Screenshots\VideoCompressorResizeCompressVideo2024_07_22_11_09_32.mp4" controls loop width="470px" height="500px"></video>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\Mahadev-Shivratri-Status-video-song.mp4" controls loop width="470px" height="500px"></video>
+    
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\11a77bedaad5432397518e027c3deb57_310753168_1289215171949650_1522014099682135597_n.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\cb39076991ad4d999a11acd7b97318b1_121651331_900665597909448_1437152813732724241_n.mp4" controls loop width="470px" height="500px"></video>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\Mahakal-Mahadev-DJ-Remix-2022-Status-Video.mp4" controls loop width="470px" height="500px"></video>
+    <h1>4 july 2024</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\VID_87300619_045351_946.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\40273f7c95ec455da8ad9631fcdd03cf_322912241_2671277083023208_8002299880872195856_n.mp4" controls loop width="470px" height="500px"></video>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\Mahakal-Mahadev-DJ-Remix-Full-Screen-Status-Video.mp4" controls loop width="470px" height="500px"></video>
+    <h1>8 june 2024</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\Pictures\Documents - Copy\my video.mov" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-08-09 at 16.58.51_30939951.mp4" controls  loop width="470px" height="540px"></video> 
+        
+
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-08-11 at 11.13.16_5ea56b70.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-12 at 07.05.25_b7e44d3a.mp4" controls  loop width="470px" height="540px"></video> 
+        <h1>7 may april</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\VID_20240918_201534.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-13 at 10.05.21_8fe72021.mp4" controls  loop width="470px" height="540px"></video> 
+        
+        <video src="C:\Users\adity\Videos\Captures\Document - Personal - Microsoft​ Edge 2024-09-25 22-38-17.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\Videos\Captures\PythonApplication5 - Microsoft Visual Studio - Experimental Instance 2024-09-24 10-23-40.mp4" controls loop width="470px" height="540px"></video> 
+       <h1>2 march 2024</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-27 at 10.48.56_a79e2efe.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-27 at 10.51.33_5dae8128.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-27 at 10.53.05_36974fe6.mp4" controls  loop width="470px" height="540px"></video> 
+        <h1>29 april 2024</h1>
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-27 at 10.53.24_e5d61973.mp4" controls  loop width="470px" height="540px"></video> 
+        <video src="C:\Users\adity\OneDrive\Documents\WhatsApp Video 2024-09-27 at 10.53.25_ccbb2c74.mp4" controls  loop width="470px" height="540px"></video>
+</section>
+</main>
+    </body>
+
+</html>
+        
+------- - ---- - ------ --------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <Marquee style="background-color: blueviolet; padding: 10px;">
+    <h1>PHOTOS
+    </Marquee>
+    </h1>
+    <H1>24 SEPTEMBER 2024</H1>
+    <div style="display: inline-flex;">
+    <div class="mySlides fade" style="width: 50%;">
+        <div class="numbertext">1 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-25 at 11.08.50_d50ad2e1.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate java</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-07 at 10.13.28_aafaac85.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate c++</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-13 at 08.56.22_b60c070c.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate data analytic</div>
+      </div>
+    </div>
+    <H1>13 AUGUST 2024</H1>
+    <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">4 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-22 at 17.28.17_2100066a.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate JavaScript</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">5 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-11 at 09.14.54_036c92f9.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate  sql</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">6 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-11 at 09.24.10_a863e845.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate  mastering of java</div>
+      </div>
+      </div>
+      <H1>29 JULY 2024</H1>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">7 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-22 at 17.28.18_f5057998.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate google sheet </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">8 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-13 at 09.00.07_35230cc4.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate master in chatgpt </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">9 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-22 at 18.59.51_14c035cb.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate mongodb </div>
+      </div>
+      </div>
+      <H1>30 JUNE 2024</H1>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">10 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-22 at 11.32.24_88f96659.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate Auto-Cad </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">11 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-16 at 08.31.54_0780dd81.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate java dsa</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">12 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-16 at 08.03.27_7818fefc.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate  react</div>
+      </div>
+      </div>
+      <H1>16 MAY 2024</H1>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">13 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-23 at 11.11.08_206dc7ea.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate web development </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">14 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-05 at 18.20.38_94f45c3d.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text"> internship certificate  </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">15 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-08-03 at 22.41.27_1617f2c3.jpg"style="width: 500px; height: 500px;"  >
+        <div class="text"> internship certificate </div>
+      </div>
+      </div>
+      <H1>23 APRIL 2024</H1>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">16/ 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-31 at 13.17.45_c1760b01.jpg"style="width: 500px; height: 500px;" >
+        <div class="text"> internship certificate </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">17 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.33.23_c7c589ca.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate java dsa </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">18 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.29_7b62785a.jpg"style="width: 500px; height: 500px;"  >
+        <div class="text">certificate deep learning </div>
+      </div>
+      </div>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">19 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.32_e19ce374.jpg"style="width: 500px; height: 500px;"  >
+        <div class="text">certificate artificial intelligence </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">20 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.34_4130d7f9.jpg"style="width: 500px; height: 500px;"  >
+        <div class="text">certificate python interview </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">21 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.35_78154284.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate math for machine learning </div>
+      </div>
+      </div>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">22 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.37_82510926.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate generative ai </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">23 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.41_e6317648.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate  machine learning</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">24 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.41_b8633cf6.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate oops in java </div>
+      </div>
+      </div>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">25 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.41_a0b4952c.jpg"style="width: 500px; height: 500px;"  >
+        <div class="text">certificate dsa interview </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">26 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.43_f18e975c.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate job interview preparation </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">27 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-02 at 18.35.43_ec25b278.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate aws </div>
+      </div>
+      </div>
+      <div style="display: inline-flex;">
+      <div class="mySlides fade">
+        <div class="numbertext">28 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-03 at 17.22.30_97e79576.jpg" style="width: 500px; height: 500px;"  >
+        <div class="text">certificate photo album </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">29/ 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-07-03 at 17.22.51_dfd1ebfa.jpg" style="width: 500px; height: 500px;" >
+        <div class="text">certificate Github </div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">30 / 30</div>
+        <img src="C:\Users\adity\OneDrive\Documents\WhatsApp Image 2024-09-25 at 22.03.41_e3482bc9.jpg"  style="width: 500px; height: 500px;" >
+        <div class="text">certificate of c+ </div>
+      </div>
+      </div>
+</body>
+</html>
