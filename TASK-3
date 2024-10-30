@@ -1,0 +1,903 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Signup</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="form-container">
+      <h2>Signup</h2>
+      <form id="signupForm" method="POST" action="signup.php">
+         <input type="email" name="email" id="email" placeholder="Email" required>
+         <input type="password" name="password" id="password" placeholder="Password" required>
+         <button type="submit">Signup</button>
+      </form>
+   </div>
+   <script src="script.js"></script>
+</body>
+</html>
+--------------------------------------------------------------------------------------
+body {
+   font-family: Arial, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background-color: #f0f0f0;
+}
+
+.form-container {
+   background-color: white;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+}
+
+input {
+   margin-bottom: 15px;
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+}
+
+button {
+   padding: 10px;
+   background-color: #28a745;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: #218838;
+}
+-------------------------------------------------------------------------------
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+   const email = document.getElementById('email').value;
+   const password = document.getElementById('password').value;
+
+   if (email === '' || password === '') {
+      event.preventDefault();
+      alert('Please fill in all fields.');
+   } else if (password.length < 6) {
+      event.preventDefault();
+      alert('Password must be at least 6 characters long.');
+   }
+});
+--------------------------------------------------------------------------------------------
+<?php
+// Database connection
+$conn = new mysqli('localhost', 'root', '', 'user_system');
+
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   $email = $_POST['email'];
+   $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+   // Check if email already exists
+   $check = $conn->query("SELECT * FROM users WHERE email='$email'");
+   if ($check->num_rows > 0) {
+      echo "Email already exists!";
+   } else {
+      // Insert user into database
+      $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
+      if ($conn->query($sql) === TRUE) {
+         echo "Signup successful!";
+      } else {
+         echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+   }
+}
+
+$conn->close();
+?>
+---------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>login</title>
+</head>
+<style>
+*{box-sizing: border-box;}
+h1{color: black; text-align: center;}
+form{text-align: center; text-decoration: solid; color: #666; background-color:#f1f2f3 ;display: grid; gap:50px; border: 5px solid #fff; padding: 15px;margin:100px 100px 100px 100px ;}
+body{background-color:hotpink;}
+input[type="text"]{width:800px ; height:40px; font-variant: small-caps; font: 1em sans-serif; font-weight: bolder;}
+form{font-weight: bolder;font: 1em sans-serif; text-decoration: solid;font-variant: small-caps; color: black; font-size:20PX;}
+.a3,.a4{ text-align: center;
+  float: left;
+  width: 50%;
+}
+
+</style>
+<body>
+ <form>
+<h1 style="font-size:50PX ;">LOGIN</h1>
+<img src="C:\Users\adity\Downloads\download (13).png" alt=" logo" style="width:200px; height: 200px; margin-left:550px ; margin-right: 500px;">
+<label for="user name">USER NAME:
+<input type="text" placeholder="USER NAME" value="user name"required >
+</label>
+<label for="Password">PASSWORD:
+ <input type="text"   placeholder="Password"  value="Password" required>
+</label>
+<a style="color:peru ; cursor:alias;" href="file:///C:/Users/adity/forgetpassword.html">forget password</a>
+<label>
+    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+  </label>
+  <p>By creating an account you agree to our <a href="file:///C:/Users/adity/termsandpolicy.html " style="color:dodgerblue">Terms & Privacy</a>.</p>
+<label>
+<a  class="a3"  style="box-sizing: border-box; color:darkgreen;text-decoration: none; background-color: chartreuse; padding: 10px;"   href="file:///C:/Users/adity/websites%20(2).html">login</a>
+ <a  class="a4"        style="box-sizing:border-box;color:red; text-decoration: none; background-color: hotpink; padding: 10px;"   href="file:///C:/Users/adity/signup.html">signup</a>
+</label>   
+ </form>   
+</body>
+</html>
+-----------------------------------------
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forgetpassword</title>
+   <style>
+    *{box-sizing: border-box; text-transform: capitalize;text-decoration: solid;}
+input[type="password"]
+{box-sizing: border-box; border-color: black;border-style: solid;width:800px ; height:40px; font-variant: small-caps; font: 1em sans-serif; font-weight: bolder; border-radius:8px;  }
+ input[type="text"] {box-sizing: border-box; border-color: black;border-style: solid;width:800px ; height:40px; font-variant: small-caps; font: 1em sans-serif; font-weight: bolder; border-radius:8px;}
+ input[type="OTP"] {box-sizing: border-box; border-color: black;border-style: solid;width:800px ; height:40px; font-variant: small-caps; font: 1em sans-serif;  font-weight: bolder; border-radius:8px;}
+  input[type="Email"] {box-sizing: border-box; border-color: black;border-style: solid;width:800px ; height:40px; font-variant: small-caps; font: 1em sans-serif;  font-weight: bolder; border-radius:8px;}
+body{background-color: aqua;}
+ </style>
+</head>
+<body>
+    <form method="post" action="#" style="box-sizing: border-box;text-align:center;margin:100PX 100PX 100PX 100PX; display:grid;gap:30px; border:5PX solid #FFF; padding: 20PX; background-color: #F1F2F3; font-size:20PX;">
+ <h1 style="text-align:center;font-size:40PX;font-weight: bolder;">RESET PASSWORD DETAILS VERIFICATION </h1> 
+ <label for="mobile number"> VERIFY MOBILE NUMBER:
+  <input type="text" placeholder="Enter MOBILE NUMBER" name="MOBILE NUMBER" required>
+  </label>
+  <label for="verify"> VERIFY:
+  <input type="checkbox" placeholder="verify" name="verify"required>
+  <BR>
+  <label for="verify mobile number"> GET OTP:</b></label>
+  <input type="OTP"  value="OTP" class="verify your mobile number GET OTP" style="width:920px;"  required>
+ </label>
+</label>
+<label for="Email ">VERIFY EMAIL:
+  <input type="email" placeholder="Enter EMAIL NUMBER" name="EMAIL" style="width:870px ;" required>
+  </label>
+<label for="verify"> VERIFY:
+<input type="checkbox" placeholder="verify" name="verify"required>
+<BR>
+<label for="verify Email"> GET OTP:
+<input type="OTP"  value="OTP" class="verify your Email number GET OTP" style="width: 920px;"   required>
+</label>
+<br>
+<label>
+  <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+</label>
+<p>By creating a new password you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+<label> <P class="form-actions" style="border:14px solid green ; background-color: green;">
+  <a style="text-decoration: none;"    href="#">SUBMIT</a>
+ </P>
+
+  <fieldset style=" display: grid; gap:30px;">
+ <H2 style="font-size:35PX;">ENTER PASSWORD</H2>
+  <label for="new password" > NEW PASSWORD:
+<input type="password" id=" newpassword" name="NEW PASSWORD" title="NEW PASSWORD" placeholder="ENTER NEW PASSWORD">
+  </label>
+  <br>
+  <label for="CONFIROM PASSWORD">CONFIROM PASSWORD:
+<input type="password" id="CONFIROM PASSWORD" name="CONFIROM PASSWORD" title=" CONFIROM PASSWORD" placeholder="ENTER CONFIROM PASSWORD" style="width:760px ;">
+  </label>
+  <br>
+  <label for="TOKEN">GENERATED PASSWORD:
+<input type="password"  id="TOKEN " name="TOKEN" title="PASSWORD TOKEN" placeholder="GENERATED PASSWORD">
+  </label>
+  <P class="form-actions" style="border:14px solid green ; background-color: green;">
+   <a style="text-decoration: none;"    href="login.html">SUBMIT</a>
+  </P>
+  </fieldset>
+ </form>
+</body>
+</html>
+  ------------------------------------------
+     <!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Sticky Footer Navbar Template · Bootstrap</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+  .content-section .table>tbody tr th:nth-child(1){
+    background-color: #8bbdc4;}
+.content-section .table>tbody tr th {
+    color: #fff;
+}
+.table-bordered th, .table-bordered td, .table th, .table td, table th, table td {
+    border: 1px solid #dedede; background-color: #869;
+}
+.table th, .table td, table th, table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dedede; background-color: #869;
+}
+th {
+    text-align: inherit; background-color: #869;
+}
+*, *::before, *::after { 
+    box-sizing: border-box;
+}
+user agent stylesheet
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+.content-section .table {
+    font-size: 16px !important;
+}
+.table, table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #333;
+}
+table {
+    border-collapse: collapse;
+}
+user agent stylesheet
+table {
+    border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+.content-section {
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow: hidden;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+  body{background-color:#f1f2f3 ;}
+ /* unvisited link */
+.navbar li a:link {
+    color:red;
+}
+
+/* visited link */
+.navbar li a:visited {
+    color: green;
+    
+}
+
+/* mouse over link */
+.navbar li a:hover {
+    color: hotpink;
+    display: block; background-color: black;
+}
+.content-section {
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow: hidden;
+}
+ *,*::before, *::after {
+    box-sizing: border-box;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+/* selected link */
+.navbar li a:active {
+    color: blue;
+}
+img{z-index: -1;position:fixed;}
+
+<!--sidebar-->
+ /* unvisited link */
+ .sid-bar li a:link {
+    color:red;
+}
+
+/* visited link */
+.side-bar li a:visited {
+    color: green;
+    
+}
+
+/* mouse over link */
+.side-bar li a:hover {
+    color: hotpink;
+    display: block; background-color: black; padding:10px ;
+}
+
+/* selected link */
+.side-bar li a:active {
+    color: blue;
+}
+table { margin-top:50px ;
+    border-collapse: collapse;
+    width: 100%;
+    border-top:solid black ;
+}
+h6{color:green; text-decoration:underline; font: 1em sans-serif; font-size: 18px; }
+h4,h5{color:chocolate; text-decoration:underline; font: 1em sans-serif; font-size: 27px;}
+th, td { background-color: #888;
+    text-align: left;
+    padding: 8px;
+    border: solid black;
+}
+.floating-box{border: 4x solid grey;background-color: aqua;margin: 4px 0px;padding: 23px;
+width: 33%; box-sizing: border-box; display: inline-block; box-sizing: border-box; text-align: left;}
+</style>
+ </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Menu-Bar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="file:///C:/Users/adity/layout.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Gallery<span class="sr-only">(current)</span></a>
+        </li>
+    <li class="nav-item active">
+     <a class="nav-link"   href="#">Services<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link"   href="file:///C:/Users/adity/c.html">Contact<span class="sr-only">(current)</span></a>
+       </li>
+       <li class="nav-item active">
+        <a class="nav-link"   href="#">About us<span class="sr-only">(current)</span></a>
+       </li>  
+       <!--dropdown-->
+<li class="nav-item dropdown active">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    MENU-BAR
+    </a>
+    <div class="dropdown-menu" style="height: auto; max-height: 200px; overflow-x:hidden ;">
+      <a class="dropdown-item" href="#">LOGIN</a>
+      <a class="dropdown-item" href="#">QUERY</a>
+      <a class="dropdown-item" href="#">COURSES</a>
+      <a class="dropdown-item" href="#">CRITERIA</a>
+      <a class="dropdown-item" href="#">TUTORIALS</a>
+      <a class="dropdown-item" href="#">ASSIGNMENT</a>
+      <a class="dropdown-item" href="#">SETTING </a>
+      <a class="dropdown-item" href="#">link-1</a>
+      <a class="dropdown-item" href="#">link-2</a>
+      <a class="dropdown-item" href="#">link-3</a>
+      <a class="dropdown-item" href="#">link-4</a>
+      <a class="dropdown-item" href="#">link-5</a>
+    </div>
+        <li class="nav-item active">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
+<!--
+  <img src="C:\Users\adity\OneDrive\Documents\1685667817134.jpeg" alt="background-image" height="1100px" width="1560px">
+--> 
+  <figcaption>
+    <H1 style=" margin-top: 100PX; color:tomato;text-decoration: underline; text-align: center;">COMPUTER SCIENCE ENGINEERING</H1>
+    <ul>
+    <li style="font-variant: small-caps; color:chocolate;"> Normal computer science engineering(basic level)</li>  
+    <li style="font-variant: small-caps; color:chocolate;">Specification computer science engineering(advance level= "Artificial intelligence")</li>  
+    </ul>
+    <p style="color:#fff; font:small-caps; margin-left: 40px;">computer science engineering best engineering in all over world </p>
+  </figcaption>
+ <!--sidebar-->
+  <sidebar class="box-model" style="border:15px solid gray; padding:0px;max-height: fit-content; height:px; width:300px ; background-color:darkgreen; text-align:left;color: #869;">
+    <UL class="side-bar" style="display:block;padding:0px ; margin-top:0px; height: auto; max-height: 200px; overflow-x:hidden ;">
+  <h1 style="text-align: center; background-color:darkgreen ;">CONTENT</h1>
+<li style="list-style-position:inside; background-color:rgb(0, 42, 17); padding:10px ;"><a href="#">DCA</a></li>   
+<li style="list-style-position:inside; background-color:rgb(172, 6, 36); padding:10px ;"><a href="#">BCA</a></li>
+  <li style="list-style-position:inside; background-color:rgb(172, 6, 122); padding:10px ;"><a href="#">TYPE-WRITER</a></li>
+  <li style="list-style-position:inside; background-color:saddlebrown; padding:10px ;"><a href="#">CCC(TRIPLE-C)</a></li>
+  <li style="list-style-position:inside; background-color:hotpink; padding:10px ;"><a href="#">CODER(CODING)</a></li>
+  <li style="list-style-position:inside; background-color: brown; padding:10px ;"><a href="#">ADCA</a></li>
+    <li style="list-style-position:inside; background-color:navy; padding:10px ;"><a href="#">HIRING CHALLENGE</a></li>
+    <li style="list-style-position:inside; background-color:goldenrod; padding:10px ;"><a href="#">TRENDING NOW</a></li> 
+    <li style="list-style-position:inside; background-color:aqua; padding:10px ;"><a href="#"> DSA</a></li> 
+    <li style="list-style-position:inside; background-color:chocolate; padding:10px ;"><a href="#">JAVA</a></li> 
+    <li style="list-style-position:inside; background-color: chartreuse; padding:10px ;"><a href="#">PYTHON</a></li> 
+    <li style="list-style-position:inside; background-color:coral; padding:10px ;"><a href="#">C++</a></li> 
+    <li style="list-style-position:inside; background-color: purple; padding:10px ;"><a href="#">C</a></li> 
+    <li style="list-style-position:inside; background-color:blue; padding:10px ;"><a href="#">PHP</a></li> 
+    <li style="list-style-position:inside; background-color: brown; padding:10px ;"><a href="#">CSS</a></li> 
+    <li style=" list-style-position:inside; background-color:orangered; padding:10px ;"><a href="#">HTML</a></li> 
+    <li style="list-style-position:inside; background-color: seagreen; padding:10px ;"><a href="#">DATA STRUCTURE</a></li> 
+    <li style="list-style-position:inside; background-color: blueviolet; padding:10px ;"><a href="#">AlGORITHMS</a></li> 
+    <li style="list-style-position:inside; background-color: red; padding:10px ;"><a href="#">Company    </a> </li>
+    <li style="list-style-position:inside; background-color: lawngreen; padding:10px ;><a href="#">About Us   </a>  </li>
+    <li style="list-style-position:inside; background-color:coral; padding:10px ;"><a href="#"> Careers    </a> </li>
+    <li style="list-style-position:inside; background-color: purple; padding:10px ;"><a href="#">In Media   </a>  </li>
+    <li style="list-style-position:inside; background-color: rgb(4, 255, 0); padding:10px ;"><a href="#">Contact Us </a>  </li>
+    <li style="list-style-position:inside; background-color: rgb(34, 0, 255); padding:10px ;"><a href="#">Terms and Conditions</a> </li>
+    <li style="list-style-position:inside; background-color: rgb(172, 6, 122); padding:10px ;"><a h<a href="#">Privacy Policy      </a>  </li>
+    <li style="list-style-position:inside; background-color:yellowgreen; padding:10px ;"><a href="#">Copyright Policy    </a> </li>
+    <li style="list-style-position:inside; background-color:goldenrod; padding:10px ;"><a href="#">Third-Party Copyright Notices </a> </li>
+ <li style=" list-style-position:inside; background-color:orangered; padding:10px ;"><a href="#">Advertise with us   </a> </li>
+ </UL>  
+</sidebar>
+<fieldset class="table">
+<div style="overflow-x:auto;">
+  <table>
+    <h2 style="text-align: center; text-decoration: underline;">COMPARISION BETWEEN ENGINEERING YEARS WISE</h2>
+    <tr>
+      <th style="background-color: darkblue;border: 2px solid black;">ENGINEERING BRANCH</th>
+      <th style="background-color: darkblue;border: 2px solid black;">RANK</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2015-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2016-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2017-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2018-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2019-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2020-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2021-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2022-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2023-Points</th>
+      <th style="background-color: darkblue;border: 2px solid black;">2024-Points</th>
+    </tr>
+    <tr>
+      <td>COMPUTER SCIENCE ENGINEERING</td>
+      <td>WORLD'S NO.1</td>
+      <td>80</td>
+      <td>80</td>
+      <td>80</td>
+      <td>87</td>
+      <td>80</td>
+      <td>80</td>
+      <td>85</td>
+      <td>80</td>
+      <td>89</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>MECHANICAL ENGINEERING</td>
+      <td>WORLD'S NO.2</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>ELECTRICAL ENGINEERING</td>
+      <td>WORLD'S NO.3</td>
+      <td>77</td>
+      <td>74</td>
+      <td>74</td>
+      <td>74</td>
+      <td>77</td>
+      <td>70</td>
+      <td>70</td>
+      <td>77</td>
+      <td>79</td>
+      <td>79</td>
+    </tr>
+  </table>
+</div>
+</fieldset>
+<h2 style="color: black; font-weight:900PX; font-size:xx-large;text-align: center; text-decoration: underline;">INFORMATION ABOUT COMPUTER SCIENCE ENGINEERING</h2>
+<div class="container">
+<div class="CONTENT" style=" color:purple ;font: 1em sans-serif; font-size: 20px;"> BRANCH SYSTEM AND SUBJECT DETAILS:
+<p style="color:brown;">B.Tech Computer Science and Engineering is a four-year undergraduate program designed to teach all theoretical aspects of computer science and develop necessary problem-solving skills using computer science. This is one of the most popular specialties in engineering. 
+  BTech CSE Core subjects are Computational Mathematics, High Performance Computing, Intelligent Computing, Scientific Visualization, Computational Optimization etc. BTech CSE elective subjects are Software Reliability, VLSI Design, Object Oriented System Design, Artificial Intelligence, Modeling and Simulation, Digital Communication etc.
+  See Also: BTech Course DetailS.
+  BTech CSE Lab subjects are Data Structures & Algorithms Lab, Object-Oriented Programming Lab, Java Programming Lab, Algorithms Lab, Database Management Systems Lab, Networking Lab, Microprocessor and Microcontroller Lab, Operating System Lab, Computer Organisation Lab etc. Check: All Full Forms of CSE Course.</p>
+  <H3 style="text-align: center; font: 1em sans-serif;font-size: 30px;text-decoration: underline;">Table of Contents </H3>
+ <H4 style="text-align: center;font: 1em sans-serif; font-size: 30px; text-decoration: solid;"> BTech CSE Syllabus </H4>
+ <table>
+	<tbody>
+		<tr>
+			<th style="background-color: aqua; text-align: center;    border: 2px solid black;">Semester I</th>
+			<th style="background-color:darkcyan ; text-align: center; border: 2px solid black">Semester II</th>
+		</tr>
+		<tr>
+			<td>English</td>
+			<td>Mathematics II</td>
+		</tr>
+		<tr>
+			<td>Mathematics I</td>
+			<td>Discrete Structures</td>
+		</tr>
+		<tr>
+			<td>Applied Physics</td>
+			<td>Data Processing</td>
+		</tr>
+		<tr>
+			<td>C &amp; Data Structures</td>
+			<td>Logic Theory</td>
+		</tr>
+		<tr>
+			<td>Engineering Drawing Practice</td>
+			<td>IC Application</td>
+		</tr>
+		<tr>
+			<td>Semiconductor Devices and Circuits</td>
+			<td>Managerial Economics and Accountancy</td>
+		</tr>
+		<tr>
+			<td>Computers and Information Technology</td>
+			<td>Linear and Digital ICs Applications</td>
+		</tr>
+		<tr>
+			<th style="background-color: aqua; text-align: center;    border: 2px solid black;">Semester III</th>
+			<th style="background-color:darkcyan ; text-align: center; border: 2px solid black">Semester IV</th>
+		</tr>
+		<tr>
+			<td>Probability and Statistics</td>
+			<td>Operations Research</td>
+		</tr>
+		<tr>
+			<td>Electrical Technology</td>
+			<td>Data Communications</td>
+		</tr>
+		<tr>
+			<td>Computer Organization</td>
+			<td>Theory of Computation</td>
+		</tr>
+		<tr>
+			<td>Operating Systems</td>
+			<td>System Programming</td>
+		</tr>
+		<tr>
+			<td>Design and Analysis of Algorithms</td>
+			<td>Interfacing Through Microprocessors</td>
+		</tr>
+		<tr>
+			<td>Object-Oriented Programming</td>
+			<td>Principles of Programming Languages</td>
+		</tr>
+		<tr>
+			<th style="background-color: aqua; text-align: center;    border: 2px solid black;" >Semester V</th>
+			<th style="background-color: darkcyan; text-align: center; border: 2px solid black;">Semester VI</th>
+		</tr>
+		<tr>
+			<td>Computer Architecture</td>
+			<td>Artificial Intelligence</td>
+		</tr>
+		<tr>
+			<td>Data Mining</td>
+			<td>Wireless Network</td>
+		</tr>
+		<tr>
+			<td>Computer Network</td>
+			<td>Compiler Design</td>
+		</tr>
+		<tr>
+			<td>Neuro-Fuzzy</td>
+			<td>Computer Graphics</td>
+		</tr>
+		<tr>
+			<td>Data structures and Algorithms</td>
+			<td>Information Storage Management</td>
+		</tr>
+		<tr>
+			<td>Database Information System</td>
+			<td>Implementation of Programming Languages</td>
+		</tr>
+		<tr>
+			<th style="background-color: aqua;text-align: center;     border: 2px solid black; ">Semester VII</th>
+			<th style="background-color: darkcyan;text-align: center;  border: 2px solid black">Semester VIII</th>
+		</tr>
+		<tr>
+			<td>Software Engineering</td>
+			<td>Simulation and Modeling</td>
+		</tr>
+		<tr>
+			<td>Distributed Systems</td>
+			<td>Pattern Recognition</td>
+		</tr>
+		<tr>
+			<td>Java Programming</td>
+			<td>Mobile Computing</td>
+		</tr>
+		<tr>
+			<td>Image Processing</td>
+			<td>Computer Communication</td>
+		</tr>
+		<tr>
+			<td>Neural Networks</td>
+			<td>Project Management</td>
+		</tr>
+		<tr>
+			<td>Visual Programming</td>
+			<td>Formal Languages and Automata Theory</td>
+		</tr>
+	</tbody>
+</table>
+ <h5>BTech CSE Subjects </h5>
+ <h5> BTech CSE syllabus is spread across 4 semesters. Each of the subjects of BTech CSE subjects are explained below :</h5>
+  
+ <h6> BTech CSE First Year Subjects</h6>
+<p>  English: This subject aims to develop general language skills through listening, speaking, reading and writing, and to provide an opportunity to acquire information and expertise in the English language
+  Mathematics: There are certain subjects in mathematics that relate only to computer science and computer programming, such as calculus, probability, statistics, linear algebra, and linear programming.
+  Discrete Structures: Discrete structures are the studies of mathematical structures that can be considered "discrete" rather than "continuous". 
+  Applied Physics: Applied physics is the application of physics to help people and solve problems. Applied physicists use physics or conduct physical research to develop new techniques or solve technical problems.
+  Data Processing: Data processing, the processing of data by a computer. This includes changing unprocessed data into a machine-readable format, routing data through the CPU and memory to output devices, and formatting or otherwise modifying the output.
+  See Also: </p>
+  
+ <h6> Basic Computer Course Syllabus	Computer Courses After 12th </h6>
+<h6> BTech CSE Second Year Subjects </h6>
+ <p>  Probability and Statistics: Probability deals with predicting the probability of future events while statistics deals with analyzing the frequency of past events. 
+  Operations Research: Operations research, often abbreviated as OR, is a discipline concerned with the development and application of analytical methods to improve decision making.
+  Electrical Technology: Electrical/Electronic Engineering Technology is a field of engineering technology that implements and applies the principles of electrical engineering. 
+  Data Communications: Data transmission or digital communication is the transmission and reception of data in the form of a digital bit stream or a digitized analog signal transmitted over a point-to-point or point-to-point communication channel.
+  See Also </p>
+  
+  <h6> Computer Science Courses	Computer Application Courses </h6>
+  <h6>  BTech CSE Third Year Subjects </h6>
+ <p> Computer Architecture: In computer engineering, computer architecture is the description of the structure of a computer system made up of components. 
+  Artificial Intelligence: The replication of human intelligence functions by machines, particularly computer systems, is known as artificial intelligence. Expert systems, natural language processing, speech recognition, and computer vision are some examples of specific uses of AI.
+  Data Mining: Data mining is the process of extracting and discovering patterns from large data sets using methods that intersect machine learning, statistics, and database systems.
+  Wireless Network: Wireless networking is a way for homes, telecommunications networks, and enterprise installations to bypass the costly process of running cables inside buildings and using them as links between different equipment locations.
+  See Also:
+  </p>
+ <h6>  Computer Programming Courses	Computer Operator Courses </h6>
+ <h6> BTech CSE Fourth Year Subjects .</h6>
+ <p> Software Engineering: Software engineering is a systematic engineering approach to software development. A software engineer is someone who applies software engineering principles to design, develop, maintain, test, and evaluate computer software.
+  Simulation and Modeling: Modeling and simulation is the use of models as a basis for simulation to develop data used in making business or technical decisions. 
+  Distributed Systems: A distributed system is one in which components reside on various networked computers that communicate with each other and coordinate their actions by exchanging messages from any system. 
+  Pattern Recognition: Pattern recognition is a data analysis method that uses machine learning algorithms to automatically detect patterns and regularities in data. Pattern recognition systems can quickly and accurately recognize familiar patterns.</p>
+ </p>
+</div>
+<div><h4>ADVANTAGES:</h4>
+  <p> the it department is certainly not saturated and there is a high  demand for quaified it specialist. computer  science  graduates need jobs as software engineers,hardware engineers ,application oe web developers,system architects ,project engineers , software testers,and many other .in this engineering you develops  skill and performances in our computer . best Engineering keepitup!</p>
+<H5>  "Placements: </H5> Though it equally depends on the student as it does on branch. Many a times highest packages are secured by other branches. But cse gives an edge in the scenario of most jobs being IT oriented in present.
+<H5> Curriculum:</H5> it is not much but yes easier than the core engineering counterparts such as mechanical and electrical.
+<H5>  Leisure time:</H5> obviously in case of cse one does not actually need to involve in field engineering. One can sit in his habitat to do his stuff and therefore cse students personally enjoy leisure.
+<H5>  Scope:</H5> yeah i know the most cliche word an engineer might listen. But yeah cse has been and will be prosperous in future as well. It is the only evergreen branch in india. Jobs for a programmer or coder are nowhere near end."
+<P>You get to learn most amazing technologies, most versions of which would be available for free as open source which is one of the biggest online community now for learning anything and everything known about computers or related tech
+  This branch attracts most of the highest paying jobs or to say higher chances of getting a job in worst scenarios
+  With most of the companies focusing heavily on digital, you get to work on coolest technologies and products on your jobs like Artificial Intelligence — Natural Language Processing, Machine Learning and help build coolest gadgets like Virtual Reality or Augmented Reality headsets and much more. Everything non-living thing would become smart in next few years and would require someone with skills to write a code. You would be in demand
+  Ability to apply logics and write algorithms help you most efficiently structure your thoughts not only while writing computer codes but also in real life scenarios
+  There is high probability that you guys would be writing the future for the world.Computer Science is your standard generic computer degree. It could be just about anything you want it to be. Not a bad degree to have at all.I have gotten from different understudies I would state that the fundamental contrasts between the two orders lie in the courses required. When you take classes with a PC designing tack, you will see electrical building classes, for example, advanced rationale and circuits. Similarly as with software engineering, you will likewise need to take question situated programming classes, perhaps not calculations or combinatorics. The activity of a PC build certainly includes working with programming however you should likewise be knowledgeable in equipment and principals identified with electrical engineering.Take this illustration. As a PC build your activity could be to tweak a touch screen, this would clearly include input from an end client. Your activity could be to outline the equipment and streamline the responsiveness of the touch work for the end client. This would include both equipment and programming related modifications. PC designers will have a work environment advantage with regards to equipment related circumstances. Besides, it would appear to be likely that a PC specialist could land a position as an electrical designer on the off chance that they so pick in light of the courses they take. I would state PC engineers have equipment information to convey to the table more so than the individuals who major in software engineering.</P>
+</div>
+<div><h4>DISADVANTAGES:</h4>
+  <p>
+    <h5>"Physically*</h5>
+
+    You have sit a lot in a certain position. In fact, you can't really work without sitting. This causes different kind of health issues like back problems, posture issues etc.
+    You have to type a lot hence carpal tunnel syndrome : Carpal Tunnel Syndrome-Topic Overview
+    You have to stare at screen most of your day hence your eyes get affected. Your eyesight can get weaker. Youight get headaches and what not.
+    Due to the nature of the job, you don't get much exercise during work as opposed to a wood cutter or a laborer etc. So you have to make extra effort to make time for exercise otherwise you get problems like being over weight and the diseases associated with being over weight like heart problems, high blood pressure etc.
+    <h5>  *Mentally*</h5>
+    
+    If you love your job and are good at it, it will consume you mentally. You will be thinking about code, algorithms, solutions to problems even in your sleep.
+    You might wake up in the middle of the night with a breakthrough solution to a problem you were having for last few days.
+    <h5> *Emotionally*</h5>
+    
+    This is a very important one in my opinion.
+    
+    You lose the ability to sympathize let alone empathize with computer illiterate people.
+    You find yourself screaming at people at phone at technical helplines when start to tell your absurd reasons as to why my internet is not working properly.
+    You stop suffering fools who think an iPhone is better than an Android phone because it looks and feels cool ( if you see latest models of Android phones, iPhone looks like a knockoff in front of them)
+    You start taking it to your heart when someone says a Mac is better than a PC because it's easier to use (in my experience, it's the opposite)
+    You start going crazy when someone claims that his graphics card is better than mind because it has more GBs (he doesn't even know GBs of what exactly?)
+    <h5>*Socially*</h5>
+    
+    Since most of the day you are in front of a computer, one way or the other, your social life suffers.
+    You start to prefer virtual world over real world because you can work and socialize at the same time without leaving your table/desk.
+    If you do not live in the US and work remotely, it's possible that you have to work in the US timezone. This means that your day becomes night and night becomes day. So you are asleep when others are awake. This reduces your chances of social life greatly."</p>
+</div>
+<div class="floating-box">PLACEMENT:
+p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+<div class="floating-box">JOBS:
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+<div class="floating-box">COMPANIES:
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+<div class="floating-box">ASSIGNMENT"
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+<div class="floating-box">KNOWLEDGE:
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+<div class="floating-box">INTERVIEW:
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe reprehenderit amet maiores natus dolores quisquam, illum, voluptatem consectetur sapiente, placeat magnam possimus vero quia? Ipsa saepe iure ullam quisquam cupiditate?</p>
+</div>
+</div>
+<fieldset style=" font: 1em sans-serif; font-weight: 900; color:hotpink; font-variant: small-caps;">
+<ul> COMPUTER SCIENCE ENGINEERING:
+<li>artificial entelligence engineering </li>
+<li>software engineering</li>  
+<li>data science engineering</li>
+<li>cloud computing engineering</li>
+<li>network area engineering</li>
+</ul>  
+</fieldset>
+<div class="container">                 
+  <ul class="pager">
+    <li><a  style="color: red;"   href="#">Previous</a></li>
+    <li><a style="color:hotpink;"   href="#">Next</a></li>
+  </ul>
+  </div>
+  <footer class="footer mt-auto py-3" style="padding: 9px; background-color: #333; text-align: center; width:1600px;" >
+    <div class="container">
+      <span class="text-muted">Copyright@v.k.p</span>
+    </div>
+  </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script></body>
+</html>
+-----------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>contact  form</title>
+<style>
+    * {box-sizing: border-box}
+body{
+   display:block;margin-left:300px ; margin-right:300px ;}
+
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.a3{
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.a3,.a4{ text-align: center;
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.a3{color: black; font: 1em sans-serif; font-weight: bolder; font-variant: small-caps; background-color:red; border: 5px solid red;padding:10px;text-decoration: none;}
+.a4{color: black ;background-color:green; font: 1em sans-serif;font-weight: bolder;font-variant: small-caps; border:5px solid green; padding: 10px;text-decoration: none; }
+
+@media screen and (max-width: 300px){
+  .cancvvelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+    </style>
+</head>
+    <body>
+         <form action="action_page.php" style="border:1px solid #ccc">
+     <div class="container">
+       <h1>Sign Up</h1>
+
+       <p>Please fill in this form to create an account.</p>
+       <hr>
+   
+       <label for="mobile number">MOBILE NUMBER:
+       <input type="text" placeholder="Enter MOBILE NUMBER" name="MOBILE NUMBER" required>
+        </label>
+
+      
+      
+        <input type="checkbox" placeholder="verify" name="verify"required>
+<label for="verify mobile number"> GET OTP:</b></label>
+ <button onclick="myFunction()">GET-OTP</button>
+
+<script>
+function myFunction() {
+  alert("YOUR  ONE TYPE OTP IS :5089463");
+}
+</script>
+       <input type="TEXT"  value="OTP" class="verify your mobile number GET OTP"required>
+       
+
+       <label for="email"><b>Email:</b></label>
+       <input type="text" placeholder="Enter Email" name="email" required>
+   
+       <label for="psw"><b>Password:</b></label>
+       <input type="password" placeholder="Enter Password" name="psw" required>
+   
+       <label for="psw-repeat"><b>Repeat Password:
+        
+        </b></label>
+       <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+   
+       <label>
+         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+       </label>
+   
+       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+   
+       <div class="clearfix">
+       <a  class="a3" href="signup.html">Cancel</button>
+         <a class="a4" href="APPLY.html" >Sign Up</a>
+       </div>
+     </div>
+   </form>
+</div>
+    </body>
+    </html>
+  
+  
+  
+  
+  
